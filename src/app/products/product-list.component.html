@@ -1,6 +1,5 @@
 <div class='card'>
         <div class='card-header'>
-            pageTitle
             {{pageTitle}}
         </div>
         <div class='card-body'>
@@ -16,8 +15,7 @@
             </div>
           </div>
           <div class='table-responsive'>
-            <table class='table'
-                   >
+            <table class='table' *ngIf='products && products.length'>
               <thead>
                 <tr>
                   <th>
