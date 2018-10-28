@@ -32,20 +32,20 @@
                 </tr>
               </thead>
               <tbody>
-                <tr >
+                <tr *ngFor = 'let Product of products'>
                   <td>
-                    <img >
+                    <img src={{Product.imageUrl}}>
                   </td>
                   <td>
-                    <a >
-                     
+                    <a href="{{Product.productId}}">
+                     {{Product.productName}}
                     </a>
                   </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td> {{Product.productCode}}</td>
+                  <td>{{Product.releaseDate}}</td>
+                  <td>{{Product.price}}</td>
                   <td>
-                  
+                    {{Product.starRating}}
                   </td>
                 </tr>
               </tbody>
