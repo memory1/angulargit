@@ -7,13 +7,33 @@ import { IProduct } from './product';
 })
 
 export class ProductListComponent implements OnInit{
+    constructor(){
+        this.filteredProducts = this.products;
+        this.listFilter = 'cart';
+    }
+
+    performFilter(filterBy: string): IProduct[] {
+        filterBy = filterBy.toLowerCase();
+        return this.products.filter((product: IProduct) => product.productName.toLowerCase().indexOf(filterBy) !== -1);
+    }
     ngOnInit(): void {
         console.log("product initiated");
     }
     pageTitle:string = "Product List";
     imageMargin: number = 2;
     showImage:boolean = false;
-    listFilter: string = 'cart';
+    
+    filteredProducts: IProduct[];
+
+    private _listFilter:string;
+    public get listFilter() {
+        return this._listFilter;
+    }
+    public set listFilter(value) {
+        this._listFilter = value;
+        this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter): this.products;
+
+    }
     products:IProduct[] = [
         {
             "productId": 2,
