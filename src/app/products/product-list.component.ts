@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { IProduct } from './product';
+import { ProductService } from './product.service';
 @Component({
     selector: 'pm-products',
     templateUrl:'./product-list.component.html',
@@ -7,9 +8,9 @@ import { IProduct } from './product';
 })
 
 export class ProductListComponent implements OnInit{
-    constructor(){
-        this.filteredProducts = this.products;
-        this.listFilter = 'cart';
+    private _productService;
+    constructor(productService: ProductService){
+        this._productService = productService;
     }
 
     onRatingClicked(message:string):void{
@@ -21,7 +22,8 @@ export class ProductListComponent implements OnInit{
         return this.products.filter((product: IProduct) => product.productName.toLowerCase().indexOf(filterBy) !== -1);
     }
     ngOnInit(): void {
-        console.log("product initiated");
+        this.products = this._productService.getProducts();
+        this.filteredProducts = this.products;
     }
     pageTitle:string = "Product List";
     imageMargin: number = 2;

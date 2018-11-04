@@ -27,6 +27,16 @@ export class ProductService{
                     "price": 8.9,
                     "starRating": 4.8,
                     "imageUrl": "https://openclipart.org/image/300px/svg_to_png/73/rejon_Hammer.png"
+                  },
+                  {
+                    "productId": 6,
+                    "productName": "Hammer2",
+                    "productCode": "TBX-0048",
+                    "releaseDate": "May 21, 2016",
+                    "description": "Curved claw steel hammer",
+                    "price": 8.9,
+                    "starRating": 4.8,
+                    "imageUrl": "https://openclipart.org/image/300px/svg_to_png/73/rejon_Hammer.png"
                   }
             ];
     }
