@@ -12,6 +12,10 @@ export class ProductListComponent implements OnInit{
         this.listFilter = 'cart';
     }
 
+    onRatingClicked(message:string):void{
+        this.pageTitle = 'Product list:' + message;
+        }
+
     performFilter(filterBy: string): IProduct[] {
         filterBy = filterBy.toLowerCase();
         return this.products.filter((product: IProduct) => product.productName.toLowerCase().indexOf(filterBy) !== -1);
